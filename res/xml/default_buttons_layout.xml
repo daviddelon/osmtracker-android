@@ -2,7 +2,7 @@
 <layouts>
 	<layout name="root">
 		<row>
-			<button type="voicerec" icon="voice_32x32" />
+			<button type="poieditor" icon="text_32x32" />
 			<button type="picture" icon="camera_32x32" />
 			<button type="textnote" icon="text_32x32" />
 		</row>

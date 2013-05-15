@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:padding="5dp">
+    <RelativeLayout android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:id="@+id/sidentifiant" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" style="@android:style/TextAppearance.Medium"
+            android:paddingRight="5sp" />
+        <TextView android:id="@+id/snom" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_toRightOf="@id/sidentifiant"
+            style="@android:style/TextAppearance.Small" />
+    </RelativeLayout>
+</LinearLayout>

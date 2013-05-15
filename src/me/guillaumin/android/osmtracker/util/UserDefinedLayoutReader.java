@@ -8,6 +8,7 @@ import me.guillaumin.android.osmtracker.R;
 import me.guillaumin.android.osmtracker.activity.TrackLogger;
 import me.guillaumin.android.osmtracker.layout.DisablableTableLayout;
 import me.guillaumin.android.osmtracker.layout.UserDefinedLayout;
+import me.guillaumin.android.osmtracker.listener.POIEditorOnClickListener;
 import me.guillaumin.android.osmtracker.listener.PageButtonOnClickListener;
 import me.guillaumin.android.osmtracker.listener.StillImageOnClickListener;
 import me.guillaumin.android.osmtracker.listener.TagButtonOnClickListener;
@@ -70,6 +71,7 @@ public class UserDefinedLayoutReader {
 	 */
 	private TextNoteOnClickListener textNoteOnClickListener;
 	
+	
 	/**
 	 * Listener bound to voice record buttons
 	 */
@@ -106,6 +108,8 @@ public class UserDefinedLayoutReader {
 	 * Current track id
 	 */
 	private long currentTrackId;
+	
+	
 	
 	/**
 	 * Constructor
@@ -293,6 +297,12 @@ public class UserDefinedLayoutReader {
 			button.setText(resources.getString(R.string.gpsstatus_record_textnote));
 			buttonIcon = resources.getDrawable(R.drawable.text_32x32);
 			button.setOnClickListener(textNoteOnClickListener);
+		} else if (XmlSchema.ATTR_VAL_POIEDITOR.equals(buttonType)) {
+			// POIEditor
+			button.setText(resources.getString(R.string.gpsstatus_record_poieditor));
+			buttonIcon = resources.getDrawable(R.drawable.text_32x32);
+			button.setOnClickListener(new POIEditorOnClickListener(currentTrackId));
+					
 		} else if (XmlSchema.ATTR_VAL_PICTURE.equals(buttonType)) {
 			// Picture button
 			button.setText(resources.getString(R.string.gpsstatus_record_stillimage));
@@ -374,6 +384,7 @@ public class UserDefinedLayoutReader {
 		public static final String ATTR_VAL_PAGE = "page";
 		public static final String ATTR_VAL_VOICEREC = "voicerec";
 		public static final String ATTR_VAL_TEXTNOTE = "textnote";
+		public static final String ATTR_VAL_POIEDITOR = "poieditor";
 		public static final String ATTR_VAL_PICTURE = "picture";
 		
 		public static final String ATTR_VAL_ICONPOS_TOP = "top";
